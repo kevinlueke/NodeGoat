@@ -79,8 +79,9 @@ function SessionHandler(db) {
                         userName: userName,
                         password: "",
                         loginError: invalidUserNameErrorMessage
+                      /*
                         //Fix for A2-2 Broken Auth - Uses identical error for both username, password error
-                        // loginError: errorMessage
+                         loginError: errorMessage
                     });
                 } else if (err.invalidPassword) {
                     return res.render("login", {
@@ -88,14 +89,14 @@ function SessionHandler(db) {
                         password: "",
                         loginError: invalidPasswordErrorMessage
                         //Fix for A2-2 Broken Auth - Uses identical error for both username, password error
-                        // loginError: errorMessage
+                         loginError: errorMessage
 
                     });
                 } else {
                     return next(err);
                 }
             }
-
+            */
             // A2-Broken Authentication and Session Management
             // Upon login, a security best practice with regards to cookies session management
             // would be to regenerate the session id so that if an id was already created for
@@ -106,8 +107,8 @@ function SessionHandler(db) {
 
             // Fix the problem by regenerating a session in each login
             // by wrapping the below code as a function callback for the method req.session.regenerate()
-            // i.e:
-            // `req.session.regenerate(function() {})`
+             i.e:
+             `req.session.regenerate(function() {})`
             req.session.userId = user._id;
             if (user.isAdmin) {
               return res.redirect("/benefits");
