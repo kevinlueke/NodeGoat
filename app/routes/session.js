@@ -79,7 +79,6 @@ function SessionHandler(db) {
                         userName: userName,
                         password: "",
                         loginError: invalidUserNameErrorMessage
-                      /*
                         //Fix for A2-2 Broken Auth - Uses identical error for both username, password error
                          loginError: errorMessage
                     });
@@ -96,7 +95,7 @@ function SessionHandler(db) {
                     return next(err);
                 }
             }
-            */
+            
             // A2-Broken Authentication and Session Management
             // Upon login, a security best practice with regards to cookies session management
             // would be to regenerate the session id so that if an id was already created for
@@ -143,11 +142,11 @@ function SessionHandler(db) {
         var LNAME_RE = /^.{1,100}$/;
         var EMAIL_RE = /^[\S]+@[\S]+\.[\S]+$/;
         var PASS_RE = /^.{1,20}$/;
-        /*
+        
         //Fix for A2-2 - Broken Authentication -  requires stronger password
         //(at least 8 characters with numbers and both lowercase and uppercase letters.)
         var PASS_RE =/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
-        */
+        
 
         errors.userNameError = "";
         errors.firstNameError = "";
