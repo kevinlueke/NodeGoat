@@ -62,7 +62,7 @@ MongoClient.connect(config.db, function(err, db) {
     // dangerous, like specified in the issue.
     // app.use(helmet.xssFilter({ setOnOldIE: true }));
 
-    // Forces browser to only use the Content-Type set in the response header instead of sniffing or guessing it
+
     app.use(nosniff());
     */
 
@@ -91,16 +91,15 @@ MongoClient.connect(config.db, function(err, db) {
         key: "sessionId",
         */
 
-        /*
         // Fix for A3 - XSS
         // TODO: Add "maxAge"
-        cookie: {
-            httpOnly: true
+      /*
+       cookie: {
+            httpOnly: true,
             // Remember to start an HTTPS server to get this working
-            // secure: true
-        }
-        */
-
+            secure: true
+         }
+         */
     }));
 
     /*
@@ -134,11 +133,9 @@ MongoClient.connect(config.db, function(err, db) {
     // Template system setup
     swig.setDefaults({
         // Autoescape disabled
-        autoescape: false
-        /*
+      //autoescape: false
         // Fix for A3 - XSS, enable auto escaping
         autoescape: true // default value
-        */
     });
 
     // Insecure HTTP connection
