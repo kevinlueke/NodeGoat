@@ -1,5 +1,6 @@
 var UserDAO = require("../data/user-dao").UserDAO;
 var AllocationsDAO = require("../data/allocations-dao").AllocationsDAO;
+//var SessionDAO = require("../data/sessions-dao").SessionsDAO;
 
 /* The SessionHandler must be constructed with a connected db */
 function SessionHandler(db) {
@@ -79,7 +80,7 @@ function SessionHandler(db) {
                     return res.render("login", {
                         userName: userName,
                         password: "",
-                        loginError: invalidUserNameErrorMessage,
+                      //loginError: invalidUserNameErrorMessage,
                         //Fix for A2-2 Broken Auth - Uses identical error for both username, password error
                          loginError: errorMessage
                     });
@@ -87,7 +88,7 @@ function SessionHandler(db) {
                     return res.render("login", {
                         userName: userName,
                         password: "",
-                        loginError: invalidPasswordErrorMessage,
+                      // loginError: invalidPasswordErrorMessage,
                         //Fix for A2-2 Broken Auth - Uses identical error for both username, password error
                          loginError: errorMessage
 
@@ -142,7 +143,7 @@ function SessionHandler(db) {
         var FNAME_RE = /^.{1,100}$/;
         var LNAME_RE = /^.{1,100}$/;
         var EMAIL_RE = /^[\S]+@[\S]+\.[\S]+$/;
-        var PASS_RE = /^.{1,20}$/;
+      //var PASS_RE = /^.{1,20}$/;
         
         //Fix for A2-2 - Broken Authentication -  requires stronger password
         //(at least 8 characters with numbers and both lowercase and uppercase letters.)
